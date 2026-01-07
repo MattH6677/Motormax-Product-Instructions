@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maxconnex Guides</title>
+<style>
+  body { font-family: sans-serif; padding: 2rem; background: #f7f7f7; }
+  h1 { margin-bottom: 1rem; }
+  .button {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+    border-radius: 5px;
+  }
+  .button:hover { background: #0056b3; }
+</style>
+</head>
+<body>
+
+<h1>Available Maxconnex Guides</h1>
+<div id="buttons"></div>
+
+<script>
+  // Load files.json and generate download buttons
+  fetch('files.json')
+    .then(response => response.json())
+    .then(files => {
+      const container = document.getElementById('buttons');
+      files.forEach(file => {
+        const link = document.createElement('a');
+        link.href = encodeURIComponent(file);
+        link.download = file;
+        link.textContent = "📥 Download " + file;
+        link.className = "button";
+        container.appendChild(link);
+      });
+    })
+    .catch(err => {
+      document.getElementById('buttons').innerHTML = "<p style='color:red;'>Failed to load files.json</p>";
+      console.error(err);
+    });
+</script>
+
+</body>
+</html>
