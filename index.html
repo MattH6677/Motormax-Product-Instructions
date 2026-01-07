@@ -1,41 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Motormax Product Instructions</title>
-<style>
-  body { font-family: bahnschrift; padding: 2rem; background: #f7f7f7; }
-  h1 { margin-bottom: 1rem; }
-  .button {
-    display: block;
-    margin: 1rem 0;
-    padding: 1rem;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    width: fit-content;
-    border-radius: 5px;
-  }
-  .button:hover { background: #0056b3; }
-</style>
+  <meta charset="UTF-8">
+  <title>Motormax Product Instructions</title>
+  
+  <style>
+    body {
+      font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
+      padding: 2rem;
+      background: #f7f7f7;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .button {
+      display: block;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background: #0056b3;
+    }
+    select {
+      font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
+      padding: 0.75rem;
+      font-size: 16px;
+      margin-top: 0.5rem;
+    }
+    #software-options {
+      display: none;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Motormax Product Guides</h1>
-<div id="buttons"></div>
+  <h1>Motormax Product Guides</h1>
 
-<label for="software">Software:</label>
+  <!-- Main Category Dropdown -->
+  <label for="category">Select Category:</label>
+  <select id="category" onchange="showSoftwareOptions()">
+    <option value="">Choose a Category</option>
+    <option value="interfaces">Interfaces</option>
+    <option value="dvr">DVR</option>
+    <option value="software">Software</option>
+  </select>
 
-<select id="software" onchange="if (this.value) window.location.href=this.value;">
-  <option value="">Select a guide</option>
-  <option value="https://matth6677.github.io/Motormax-Product-Instructions/Maxconnex guide.pptx">
-    Maxconnex Software Guide
-  </option>
-</select>
+  <!-- Software Options (Only visible when "Software" is selected) -->
+  <div id="software-options">
+    <label for="software-guide">Select a Software Guide:</label>
+    <select id="software-guide">
+      <option value="">Select a guide</option>
+      <option value="https://matth6677.github.io/Motormax-Product-Instructions/Maxconnex guide.pptx">
+        Maxconnex Software Guide
+      </option>
+    </select>
+  </div>
+
+  <script>
+    // Show the software options dropdown when "Software" is selected
+    function showSoftwareOptions() {
+      const category = document.getElementById('category').value;
+      const softwareOptions = document.getElementById('software-options');
+      
+      // Show or hide software options based on the selected category
+      if (category === 'software') {
+        softwareOptions.style.display = 'block';
+      } else {
+        softwareOptions.style.display = 'none';
+      }
+    }
+
+    // Automatically redirect to the .pptx file when a software guide is selected
+    document.getElementById('software-guide').addEventListener('change', function() {
+      if (this.value) {
+        window.location.href = this.value;
+      }
+    });
+  </script>
 
 </body>
 </html>
-
 
 
 
