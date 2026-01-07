@@ -64,29 +64,32 @@
   </div>
 
   <script>
-    // Show the software options dropdown when "Software" is selected
-    function showSoftwareOptions() {
-      const category = document.getElementById('category').value;
-      const softwareOptions = document.getElementById('software-options');
-      
-      // Show or hide software options based on the selected category
-      if (category === 'software') {
-        softwareOptions.style.display = 'block';
-      } else {
-        softwareOptions.style.display = 'none';
-      }
-    }
+   document.addEventListener("DOMContentLoaded", function () {
 
-    // Automatically redirect to the .pptx file when a software guide is selected
-    document.getElementById('software-guide').addEventListener('change', function() {
+    const category = document.getElementById("category");
+    const softwareOptions = document.getElementById("software-options");
+    const softwareGuide = document.getElementById("software-guide");
+
+    category.addEventListener("change", function () {
+      if (this.value === "software") {
+        softwareOptions.style.display = "block";
+      } else {
+        softwareOptions.style.display = "none";
+      }
+    });
+
+    softwareGuide.addEventListener("change", function () {
       if (this.value) {
         window.location.href = this.value;
       }
     });
+
+  });
   </script>
 
 </body>
 </html>
+
 
 
 
