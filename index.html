@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    h1 {
-      font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
-    }
-  </style>
-</head>
 <meta charset="UTF-8">
 <title>Motormax Product Instructions</title>
 <style>
@@ -30,10 +24,18 @@
 <h1>Motormax Product Guides</h1>
 <div id="buttons"></div>
 
+<label for="software">Software:</label>
 
-  <a href="https://matth6677.github.io/Motormax-Product-Instructions/Maxconnex guide.pptx">Maxconnex Software Guide</a>
+<select id="software" onchange="if (this.value) window.location.href=this.value;">
+  <option value="">Select a guide</option>
+  <option value="https://matth6677.github.io/Motormax-Product-Instructions/Maxconnex guide.pptx">
+    Maxconnex Software Guide
+  </option>
+</select>
+
 </body>
 </html>
+
 
 
 
