@@ -24,26 +24,7 @@
 <h1>Available Maxconnex Guides</h1>
 <div id="buttons"></div>
 
-<script>
-  // Load files.json and generate download buttons
-  fetch('files.json')
-    .then(response => response.json())
-    .then(files => {
-      const container = document.getElementById('buttons');
-      files.forEach(file => {
-        const link = document.createElement('a');
-        link.href = encodeURIComponent(file);
-        link.download = file;
-        link.textContent = "📥 Download " + file;
-        link.className = "button";
-        container.appendChild(link);
-      });
-    })
-    .catch(err => {
-      document.getElementById('buttons').innerHTML = "<p style='color:red;'>Failed to load files.json</p>";
-      console.error(err);
-    });
-</script>
-
+matth6677.github.io/Motormax-Product-Instructions/Maxconnex guide.pptx
 </body>
 </html>
+
