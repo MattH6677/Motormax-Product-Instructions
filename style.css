@@ -3,7 +3,17 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
 
+.back-btn:hover {
+  text-decoration: underline;
+}
 body {
   margin: 0;
   background: #f4f6f8;
