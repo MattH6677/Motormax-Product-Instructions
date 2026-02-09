@@ -2,55 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Motormax Product Guides</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f7f7f7; }
-    h1 { margin-bottom: 1rem; }
-    .button {
-      display: block;
-      margin: 1rem 0;
-      padding: 1rem;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      width: fit-content;
-      border-radius: 5px;
-    }
-    .button:hover { background: #0056b3; }
-    select {
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maxconnex Instructions Download</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Motormax Product Guides</h1>
+  <div class="container">
+    <h1>Maxconnex Instructions Download</h1>
+    <p>Download the full Maxconnex setup and usage guide below.</p>
 
-<label for="guides">Select a guide:</label>
-<select id="guides">
-  <option value="" disabled selected>-- Choose a guide --</option>
-  <option value="https://github.com/MattH6677/Motormax-Product-Instructions/blob/main/Maxconnex-Full-Guide.pptx">Guide 2: Software</option>
-</select>
-
-<a href="#" id="openGuide" class="button">Open Guide</a>
-
-<script>
-  const select = document.getElementById('guides');
-  const button = document.getElementById('openGuide');
-
-  button.addEventListener('click', () => {
-    const selected = select.value;
-    if (selected) {
-      window.location.href = selected; // Redirect to the selected guide
-    } else {
-      alert('Please select a guide first.');
-    }
-  });
-</script>
+    <a 
+      href="downloads/Maxconnex-Full-Guide.pptx" 
+      class="download-btn"
+      download
+    >
+      ⬇ Download PowerPoint
+    </a>
+  </div>
 
 </body>
 </html>
