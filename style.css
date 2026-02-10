@@ -61,7 +61,23 @@ body {
   position: relative;
 }
 
-/* Hide dropdown items by default */
+/* Dropdown toggle button (Software button) */
+.dropdown-toggle {
+  background: #0078d4; /* friendly blue */
+  border: none;
+  padding: 15px 20px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.dropdown-toggle:hover {
+  background: #005ea6; /* darker blue on hover */
+}
+
+/* Dropdown menu (hidden by default) */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -77,27 +93,10 @@ body {
   z-index: 1000;
 }
 
-/* Dropdown toggle button */
-.dropdown-toggle {
-  background: #0078d4; /* Nice blue for default */
-  border: none;
-  padding: 15px 20px;
-  color: white;       /* White text works on blue */
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 6px; /* Slightly rounded for friendliness */
-  transition: background 0.3s;
-}
-
-.dropdown-toggle:hover {
-  background: #005ea6; /* Darker blue on hover */
-}
-
 /* Show dropdown when active */
-.dropdown.open .dropdown-menu {
+.dropdown.open > .dropdown-menu {
   display: block;
 }
-
 
 /* Dropdown links */
 .dropdown-menu li a {
@@ -112,6 +111,30 @@ body {
   background: #f0f0f0;
 }
 
+/* ===== NESTED DROPDOWN (Software → Maxconnex) ===== */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown .dropdown-menu {
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 200px;
+  background: white;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Show nested dropdown when parent is active */
+.dropdown.open .sub-dropdown .dropdown-menu {
+  display: block;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 700px) {
   .menu {
@@ -119,36 +142,14 @@ body {
     padding: 0;
   }
 
-  .dropdown-menu {
-    position: relative;
-    box-shadow: none;
-    border-radius: 0;
-  }
-}
-
-  /* Make dropdown items stacked under parent */
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border-radius: 0;
-  }
-}
-/* Nested dropdown (Software → Maxconnex) */
-.sub-dropdown {
-  position: relative;
-}
-
-.sub-dropdown .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-left: 1px;
-}
-
-/* Mobile: stack nested dropdowns */
-@media (max-width: 700px) {
+  /* Stack dropdown menus */
+  .dropdown-menu,
   .sub-dropdown .dropdown-menu {
+    position: relative;
+    top: 0;
     left: 0;
-    top: 100%;
+    box-shadow: none;
+    border-radius: 0;
   }
 }
 
