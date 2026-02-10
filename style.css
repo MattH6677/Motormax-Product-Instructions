@@ -131,6 +131,24 @@ body {
     border-radius: 0;
   }
 }
+/* Nested dropdown (Software → Maxconnex) */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 1px;
+}
+
+/* Mobile: stack nested dropdowns */
+@media (max-width: 700px) {
+  .sub-dropdown .dropdown-menu {
+    left: 0;
+    top: 100%;
+  }
+}
 
 /* ===== PAGE CONTENT ===== */
 .container {
