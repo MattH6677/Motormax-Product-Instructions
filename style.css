@@ -77,11 +77,25 @@ body {
   z-index: 1000;
 }
 
-/* Show dropdown on hover or keyboard focus */
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
+/* Dropdown toggle button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 15px 20px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  background: #444;
+}
+
+/* Show dropdown when active */
+.dropdown.open .dropdown-menu {
   display: block;
 }
+
 
 /* Dropdown links */
 .dropdown-menu li a {
@@ -102,6 +116,13 @@ body {
     flex-direction: column;
     padding: 0;
   }
+
+  .dropdown-menu {
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
 
   /* Make dropdown items stacked under parent */
   .dropdown-menu {
