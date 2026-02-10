@@ -38,12 +38,14 @@ body {
   margin: 0;
   padding: 0 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .menu li {
   position: relative;
 }
 
+/* Standard menu links */
 .menu a {
   display: block;
   padding: 15px 20px;
@@ -61,7 +63,7 @@ body {
   position: relative;
 }
 
-/* Dropdown toggle button (Software) */
+/* Dropdown toggle button with arrow */
 .dropdown-toggle {
   background: #0078d4; /* friendly blue */
   border: none;
@@ -71,19 +73,23 @@ body {
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Hover effect */
 .dropdown-toggle:hover {
   background: #005ea6;
 }
 
-/* Optional: show slightly darker when dropdown is open */
-.dropdown.open > .dropdown-toggle {
-  background: #0065b0; /* subtle darker shade, not too "active" */
+/* Add small downward arrow using CSS */
+.dropdown-toggle::after {
+  content: '▼';
+  font-size: 10px;
+  margin-left: 8px;
 }
 
-/* Dropdown menu (hidden by default) */
+/* Dropdown menu hidden by default */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -99,8 +105,8 @@ body {
   z-index: 1000;
 }
 
-/* Show dropdown when active */
-.dropdown.open > .dropdown-menu {
+/* Show dropdown on hover (desktop) */
+.dropdown:hover > .dropdown-menu {
   display: block;
 }
 
@@ -117,13 +123,14 @@ body {
   background: #f0f0f0;
 }
 
-/* ===== NESTED DROPDOWN (Software → Maxconnex) ===== */
+/* ===== NESTED DROPDOWN ===== */
 .sub-dropdown {
   position: relative;
 }
 
+/* Nested menu hidden by default */
 .sub-dropdown .dropdown-menu {
-  display: none; /* hidden by default */
+  display: none;
   position: absolute;
   top: 0;
   left: 100%;
@@ -136,8 +143,8 @@ body {
   z-index: 1000;
 }
 
-/* Show nested dropdown when parent is active */
-.dropdown.open .sub-dropdown .dropdown-menu {
+/* Show nested menu on hover */
+.sub-dropdown:hover > .dropdown-menu {
   display: block;
 }
 
@@ -156,6 +163,19 @@ body {
     left: 0;
     box-shadow: none;
     border-radius: 0;
+    display: none; /* hidden by default on mobile */
+  }
+
+  /* Show dropdown when JS toggles 'open' class */
+  .dropdown.open > .dropdown-menu,
+  .sub-dropdown.open > .dropdown-menu {
+    display: block;
+  }
+
+  /* Arrow rotates on open */
+  .dropdown.open > .dropdown-toggle::after,
+  .sub-dropdown.open > .dropdown-toggle::after {
+    transform: rotate(180deg);
   }
 }
 
