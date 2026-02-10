@@ -79,16 +79,18 @@ body {
 
 /* Dropdown toggle button */
 .dropdown-toggle {
-  background: none;
+  background: #0078d4; /* Nice blue for default */
   border: none;
   padding: 15px 20px;
-  color: white;
+  color: white;       /* White text works on blue */
   font-size: 15px;
   cursor: pointer;
+  border-radius: 6px; /* Slightly rounded for friendliness */
+  transition: background 0.3s;
 }
 
 .dropdown-toggle:hover {
-  background: #444;
+  background: #005ea6; /* Darker blue on hover */
 }
 
 /* Show dropdown when active */
