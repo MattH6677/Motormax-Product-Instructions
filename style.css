@@ -61,7 +61,7 @@ body {
   position: relative;
 }
 
-/* Dropdown toggle button (Software button) */
+/* Dropdown toggle button (Software) */
 .dropdown-toggle {
   background: #0078d4; /* friendly blue */
   border: none;
@@ -73,8 +73,14 @@ body {
   transition: background 0.3s;
 }
 
+/* Hover effect */
 .dropdown-toggle:hover {
-  background: #005ea6; /* darker blue on hover */
+  background: #005ea6;
+}
+
+/* Optional: show slightly darker when dropdown is open */
+.dropdown.open > .dropdown-toggle {
+  background: #0065b0; /* subtle darker shade, not too "active" */
 }
 
 /* Dropdown menu (hidden by default) */
