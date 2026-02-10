@@ -1,9 +1,7 @@
 document.querySelectorAll('.dropdown-toggle').forEach(button => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', e => {
+    e.stopPropagation();
     const dropdown = button.parentElement;
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-
-    button.setAttribute('aria-expanded', !expanded);
     dropdown.classList.toggle('open');
   });
 });
